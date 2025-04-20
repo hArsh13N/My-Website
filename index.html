@@ -1,0 +1,793 @@
+<!-- Entire HTML Document -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Harsh's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+  
+   
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #1f1f1f;
+      color: white;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 2rem 4rem;
+      align-items: center;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: cyan;
+    }
+
+    section {
+      padding: 4rem;
+      min-height: 100vh;
+      scroll-margin-top: 80px;
+      position: relative;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .text-section h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .text-section h2 {
+      font-size: 2rem;
+      color: white;
+    }
+
+    .highlight {
+      color: cyan;
+    }
+
+    .text-section p {
+      margin-top: 1rem;
+      color: #ccc;
+      max-width: 500px;
+    }
+
+    .social-icons {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .social-icons a {
+      font-size: 1.5rem;
+      color: cyan;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 2rem;
+      background: cyan;
+      color: black;
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #00bcd4;
+    }
+
+    .image-section {
+      width: 400px;
+      height: 400px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px cyan;
+      animation: float 3s ease-in-out infinite;
+      margin-top: 2rem;
+    }
+
+    .image-section img {
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      object-fit: cover;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .typing {
+      font-weight: bold;
+      display: inline;
+      color: cyan;
+    }
+
+    .cursor {
+      display: inline-block;
+      background-color: cyan;
+      width: 2px;
+      height: 1.5rem;
+      animation: blink 0.7s infinite;
+      vertical-align: bottom;
+      margin-left: 3px;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    #about {
+      background: url('name3.jpg') no-repeat center center;
+      background-size: cover;
+      background-attachment: fixed;
+      color: white;
+      position: relative;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    #about::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+
+    .about-content {
+      position: relative;
+      z-index: 1;
+      padding: 2rem;
+      border-radius: 15px;
+      max-width: 800px;
+      margin: auto;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1.5rem;
+      justify-items: center;
+      padding: 2rem 0;
+    }
+
+    .skill {
+      background: rgba(0, 255, 255, 0.1);
+      color: white;
+      border-radius: 15px;
+      padding: 1rem;
+      text-align: center;
+      font-weight: 600;
+      width: 120px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+      transition: transform 0.3s ease;
+      clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%);
+    }
+
+    .skill:hover {
+      transform: scale(1.1);
+      background: rgba(0, 255, 255, 0.2);
+    }
+
+    .projects {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .project {
+      position: relative;
+      width: 300px;
+      transition: all 0.5s ease;
+      cursor: pointer;
+    }
+
+    .project img {
+      width: 100%;
+      height: 200px;
+      border-radius: 15px;
+      object-fit: cover;
+      box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+    }
+
+   
+
+    .project-description {
+      display: none;
+      margin-top: 1rem;
+      background: rgba(0, 255, 255, 0.05);
+      padding: 1rem;
+      border-radius: 10px;
+    }
+
+    .project.active .project-description {
+      display: block;
+    }
+
+	
+.project.active {
+      opacity: 1 !important;
+      filter: none !important;
+    }
+
+    .project.blur {
+      opacity: 0.4;
+      filter: blur(2px);
+    }
+
+    .project h3 {
+      margin-top: 0.8rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: cyan;
+    }
+/* Achievements Section */
+#achievements {
+  padding: 4rem 2rem;
+  background-color: #0a0a0a;
+  color: #fff;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: cyan;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.achievement {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 255, 255, 0.1);
+  transform: scale(0.95);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+}
+
+.achievement:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
+}
+
+.achievement img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.achievement p {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+/* Animation */
+.fade-in {
+  animation: fadeZoom 1s forwards ease;
+}
+
+@keyframes fadeZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Popup styles */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  padding: 2rem;
+}
+
+.popup-content {
+  background: #1a1a1a;
+  padding: 2rem;
+  border-radius: 16px;
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  animation: fadeZoom 0.5s ease forwards;
+  box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
+}
+
+.popup-content img {
+  width: 100%;
+  max-height: 450px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+}
+
+.popup-content p {
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: cyan;
+  color: #000;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.close-btn:hover {
+  background: #00ffffa4;
+}
+.navigation-buttons {
+  position: relative;
+  width: 100%;
+}
+
+.nav-btn {
+  position: absolute;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #4f46e5; /* Match your Explore button color */
+  color: white;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-btn:hover {
+  transform: scale(1.05);
+  background-color: #3730a3;
+}
+
+.nav-btn.back {
+  top: 20px;
+  left: 20px;
+}
+
+.nav-btn.next {
+  bottom: 20px;
+  right: 20px;
+}
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+    padding-left: 0;
+  }
+
+  .container,
+  .about-container,
+  .projects-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .image-section {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+  }
+
+  .popup-content {
+    width: 90%;
+    padding: 1rem;
+  }
+
+  section {
+    padding: 2rem 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  p, li {
+    font-size: 1rem;
+  }
+}
+
+
+/* Animations already exist, reused */
+
+.nav-buttons {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      display: flex;
+      justify-content: space-between;
+      pointer-events: none;
+    }
+
+    .nav-buttons a {
+      pointer-events: all;
+      color: cyan;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      background: rgba(0, 255, 255, 0.1);
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+    }
+
+    .nav-buttons .back {
+      position: absolute;
+      top: 1rem;
+      left: 2rem;
+    }
+
+    .nav-buttons .next {
+      position: absolute;
+      bottom: 1rem;
+      right: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div style="color: white; font-size: 1.5rem; font-weight: bold;">Portfolio.</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#work">My Work</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="home" class="container">
+    <div class="text-section">
+      <h1>Hello, It's Me <br><strong>Harsh</strong></h1>
+      <h2>And I'm a <span id="animatedText" class="typing"></span><span class="cursor"></span></h2>
+      <p>Innovative ECE student blending tech and creativity...</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/its_harsh1305" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/harsh-atul-naik-83b750286" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <a href="#about" class="btn">Explore More</a>
+    </div>
+    <div class="image-section">
+      <img src="name.jpg" alt="Harsh">
+    </div>
+  </section>
+
+  <section id="about">
+  
+  </a>
+    <div class="about-content">
+      <h2>About Me</h2>
+      <p>Hello Visitors! Myself Harsh Atul Naik. Pursuing My Undergrad Degree In ECE at MIT-WPU, Pune.I'm a passionate Electronics and Communication Engineering student with a strong interest in embedded systems and innovation. Skilled in C++, Python, and Embedded C, I’ve designed projects like a Bluetooth-controlled chassis that improved efficiency by 30%, earning 1st place at the 2023 IEEE Department-Level Project Exhibition. I consistently rank in the top 10% of my class, blending technical expertise with teamwork and problem-solving.</p>
+      <br>
+      <p>Beyond engineering, I’m a dedicated dancer and singer, having won several prizes in inter-college competitions. I also love crafting, especially creating beautiful things from waste materials. With a flair for event and team management, I enjoy bringing both structure and creativity to everything I do.</p>
+      <br>
+      <p>I’m excited to build meaningful solutions that combine technology, creativity, and a passion for impact.</p>
+ 
+      <div className="flex gap-4 mt-10">
+   
+
+    
+    
+  </div>
+
+    </div>
+<div class="navigation-buttons">
+  <button class="nav-btn back" onclick="document.getElementById('home').scrollIntoView({ behavior: 'smooth' })">← Back</button>
+  <button class="nav-btn next" onclick="document.getElementById('skills').scrollIntoView({ behavior: 'smooth' })">Next →</button>
+</div>
+
+  </section>
+
+  <section id="skills">
+    <h2 style="text-align:center; margin-bottom: 2rem; font-size: 2.5rem; color: cyan;">Skills</h2>
+     <div class="skills-grid">
+        <div class="skill">C</div>
+        <div class="skill">C++</div>
+        <div class="skill">C Embedded</div>
+        <div class="skill">Python</div>
+        <div class="skill">Java</div>
+        <div class="skill">Matlab</div>
+        <div class="skill">Canva</div>
+        <div class="skill">French Language</div>
+        <div class="skill">Dancing</div>
+        <div class="skill">Singing</div>
+        <div class="skill">Craft</div>
+        <div class="skill">Management</div>
+        <div class="skill">Leadership</div>
+
+        <div class="navigation-buttons">
+  <button class="nav-btn back" onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' })">← Back</button>
+  
+      </div>
+    </div>
+<button class="nav-btn next" onclick="document.getElementById('work').scrollIntoView({ behavior: 'smooth' })">Next →</button>
+</div>
+
+
+
+  </section>
+
+  <section id="work">
+    <h2 style="text-align:center; font-size: 2.5rem; color: cyan; margin-bottom: 2rem;">My Work</h2>
+    <div class="projects">
+      <div class="project" onclick="toggleProject(this)">
+        <img src="project1.jpg" alt="Wheel Chair Project">
+        <h3>Remote, Voice & Gesture Controlled Wheel Chair</h3>
+        <div class="project-description">
+          The Voice-Controlled Wheelchair project aims to develop an innovative assistive technology solution that provides individuals with physical disabilities greater independence and mobility through intuitive voice commands. The wheelchair is designed to respond to spoken instructions, allowing users to control its movements seamlessly.
+        </div>
+      </div>
+      <div class="project" onclick="toggleProject(this)">
+        <img src="project2.jpg" alt="Smart Intrusion System">
+        <h3>Smart Intrusion Monitoring System (IMS)</h3>
+        <div class="project-description">
+          This project features a Smart Intrusion Monitoring System using an ESP32 microcontroller, PIR motion sensor, buzzer, and LED indicators. When motion is detected, the buzzer sounds, a red LED lights up, and a notification is sent via the Blynk app. A green LED shows the system is armed. With real-time alerts and remote access through Blynk, users can monitor and manage home security from anywhere, ensuring safety and peace of mind.
+        </div>
+      </div>
+      <div class="project" onclick="toggleProject(this)">
+        <img src="project3.jpg" alt="BeachBot">
+        <h3>BeachBot: Revolutionizing Shoreline Cleanups</h3>
+        <div class="project-description">
+          BeachBot is an innovative autonomous robot designed to tackle the pressing issue of garbage-covered beaches and polluted shorelines. Using advanced machine learning algorithms, BeachBot identifies and collects litter with minimal human intervention—just 10%. Unlike traditional solutions that require empty beaches to operate, BeachBot is efficient even during peak hours. It uses a camera and LiDAR to detect trash, navigates to it autonomously, and collects it in an onboard tank, which is later emptied at a designated dump site. BeachBot makes coastal cleanups smarter, faster, and more effective.
+
+
+        </div>
+      </div>
+    </div>
+  <div class="navigation-buttons">
+  <button class="nav-btn back" onclick="document.getElementById('skills').scrollIntoView({ behavior: 'smooth' })">← Back</button>
+  <button class="nav-btn next" onclick="document.getElementById('achievements').scrollIntoView({ behavior: 'smooth' })">Next →</button>
+</div>
+
+  </section>
+
+  <section id="achievements">
+  <h2 class="section-title">Achievements</h2>
+  <div class="achievements-grid">
+    <!-- Repeat this block for each certificate -->
+    <div class="achievement fade-in" onclick="openPopup('cert1.jpg', 'Winner Certificate for 1st prize in BEEE Project Conducted By IEEE')">
+      <img src="cert1.jpg" alt="Certificate 1">
+      <p>Winner Certificate for 1st prize in BEEE Project Conducted By IEEE</p>
+    </div>
+
+    <div class="achievement fade-in" onclick="openPopup('cert2.jpg', 'Certificate for Completion of Arduino Training')">
+      <img src="cert2.jpg" alt="Certificate 2">
+      <p>Certificate for Completion of Arduino Training</p>
+    </div>
+
+    <div class="achievement fade-in" onclick="openPopup('cert3.jpg', 'Certificate for Completion Of Signal Processing Onramp course on Matlab Simulink')">
+      <img src="cert3.jpg" alt="Certificate 3">
+      <p>Certificate for Completion Of Signal Processing Onramp course on Matlab Simulink</p>
+    </div>
+
+    <div class="achievement fade-in" onclick="openPopup('cert4.jpg', 'Participation Certificate In HackMIT24 Workathon')">
+      <img src="cert4.jpg" alt="Certificate 4">
+      <p>Participation Certificate In HackMIT24 Workathon</p>
+    </div>
+
+    <div class="achievement fade-in" onclick="openPopup('cert5.jpg', 'Participated in Triangle Trophy 2024 under Group Singing Competition Won 3rd Prize')">
+      <img src="cert5.jpg" alt="Certificate 5">
+      <p>Participated in Triangle Trophy 2024 under Group Singing Competition Won 3rd Prize</p>
+    </div>
+
+    <div class="achievement fade-in" onclick="openPopup('cert6.jpg', 'Won Runner Up position in Triangle Trophy 2025 under Group Dance Competition')">
+      <img src="cert6.jpg" alt="Certificate 6">
+      <p>Won Runner Up position in Triangle Trophy 2025 under Group Dance Competition</p>
+    </div>
+  </div>
+
+  <!-- Popup -->
+  <div id="popup" class="popup-overlay">
+    <div class="popup-content">
+      <button class="close-btn" onclick="closePopup()">Back</button>
+      <img id="popup-img" src="" alt="Certificate">
+      <p id="popup-desc"></p>
+    </div>
+  </div>
+<div class="navigation-buttons">
+  <button class="nav-btn back" onclick="document.getElementById('work').scrollIntoView({ behavior: 'smooth' })">← Back</button>
+  <button class="nav-btn next" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">Next →</button>
+</div>
+
+</section>
+
+  <section id="contact" className="min-h-screen bg-black text-white py-20 px-4">
+  <div className="max-w-4xl mx-auto text-center space-y-10">
+    <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+      Contact Me
+    </h2>
+
+    <div className="space-y-4">
+      <p className="text-2xl font-semibold animate-bounce text-gray-300">
+        404: Opportunity not found — until you get in touch
+      </p>
+      <p className="text-xl text-gray-400">
+        Every connection starts with a conversation. Let’s make something meaningful.
+      </p>
+    </div>
+
+    <div className="text-left text-lg space-y-2">
+      <p><strong>📧 Personal Email:</strong> <a href="mailto:harsh.n1305@gmail.com" className="text-blue-400">harsh.n1305@gmail.com</a></p>
+      <p><strong>💼 Work Email:</strong> <a href="mailto:harsh.naik@mitwpu.edu.in" className="text-blue-400">harsh.naik@mitwpu.edu.in</a></p>
+      <p><strong>📱 Mobile:</strong> <a href="tel:+918766968695" className="text-blue-400">+91 8766968695</a></p>
+    </div>
+
+    <div className="flex justify-center gap-6 pt-4">
+      <a href="https://www.linkedin.com/in/harsh-atul-naik-83b750286" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" className="w-6 h-6 hover:scale-110 transition-transform" />
+      </a>
+      <a href="https://www.instagram.com/its_harsh1305" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" className="w-6 h-6 hover:scale-110 transition-transform" />
+      </a>
+    </div>
+
+    <p className="pt-10 text-2xl text-pink-400 font-bold tracking-wide">
+      Made with ❤️ by Harsh Naik
+    </p>
+  </div>
+<div class="navigation-buttons">
+  <button class="nav-btn back" onclick="document.getElementById('achievements').scrollIntoView({ behavior: 'smooth' })">← Back</button>
+  <button class="nav-btn next" onclick="document.getElementById('home').scrollIntoView({ behavior: 'smooth' })">Next →</button>
+</div>
+
+</section>
+
+
+
+
+
+
+
+  <script>
+    const phrases = ["Enthusiastic Embedded Engineer", "Passionate Artist!"];
+    let currentPhrase = 0;
+    let currentChar = 0;
+    const textElement = document.getElementById("animatedText");
+
+    function type() {
+      if (currentChar < phrases[currentPhrase].length) {
+        textElement.textContent += phrases[currentPhrase].charAt(currentChar);
+        currentChar++;
+        setTimeout(type, 100);
+      } else {
+        setTimeout(erase, 2000);
+      }
+    }
+
+    function erase() {
+      if (currentChar > 0) {
+        textElement.textContent = phrases[currentPhrase].substring(0, currentChar - 1);
+        currentChar--;
+        setTimeout(erase, 50);
+      } else {
+        currentPhrase = (currentPhrase + 1) % phrases.length;
+        setTimeout(type, 500);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(type, 500);
+    });
+
+    function toggleProject(el) {
+      const allProjects = document.querySelectorAll(".project");
+      const isActive = el.classList.contains("active");
+      allProjects.forEach(project => project.classList.remove("active", "blur"));
+      if (!isActive) {
+        el.classList.add("active");
+        allProjects.forEach(project => {
+          if (!project.classList.contains("active")) {
+            project.classList.add("blur");
+          }
+        });
+      }
+    }
+  </script>
+<script>
+  function openPopup(imageSrc, description) {
+    document.getElementById('popup-img').src = imageSrc;
+    document.getElementById('popup-desc').innerText = description;
+    document.getElementById('popup').style.display = 'flex';
+  }
+
+  function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
